@@ -1,6 +1,6 @@
   # Multi-Blockchain Wallet in Python
 
-![newtons-coin-cradle](Images/newtons-coin-cradle.jpg)
+![newtons-coin-cradle](images/newtons-coin-cradle.jpg)
 
 ## Background
 
@@ -50,7 +50,7 @@ The ojbect coin was created to derive ETH and BTCTEST using the following lines 
 ### **Define function to derive wallet**
 ``def derive_wallets(mnemonic, coin, numderive):
     """Use the subprocess library to call the php file script from Python"""
-    command = f'php ./hd-wallet-derive/hd-wallet-derive.php -g --mnemonic="{mnemonic}" --numderive="{numderive}" --coin="{coin}" --format=json' 
+    command = f'php ./hd-wallet-derive/hd-wallet-derive.php -g --mnemonic="{mnemonic}" --numderive="{numderive}" --coin="{coin}" --cols=path,address,privkey,pubkey --format=json' 
     p = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
     (output, err) = p.communicate()
     p_status = p.wait()
@@ -61,13 +61,13 @@ The ojbect coin was created to derive ETH and BTCTEST using the following lines 
 #### **Test the function derive_wallets**
 * derive_wallets(mnemonic, 'BTC', 3)
 
-![derive_wallets](Images/derive_wallets.png)
+![derive_wallets](images/derive_wallets.png)
 
 
 #### **Test the dictionary object coins** 
 Create a dictionary object called coins that uses the derive_wallets function to derive ETH and BTCTEST wallets.
 
-![coins](Images/coins.png)
+![coins](images/coins.png)
 
 ## **Linking the transaction signing libraries**
 
@@ -77,11 +77,11 @@ BTC has been funded using testnet faucets bitaps https://tbtc.bitaps.com/ into f
 
 ## **Bitcoin Testnet transaction**
 
-![bitaps1](Images/bitaps1.png)
+![bitaps1](images/bitaps1.png)
 
 0.001 BTCTEST has been deposited to the address.
 
-![bitaps2](Images/bitaps2.png)
+![bitaps2](images/bitaps2.png)
 
 Send BTCTEST from the address to another address using below code.
 
@@ -89,11 +89,11 @@ Send BTCTEST from the address to another address using below code.
 btc_address = coins[BTCTEST][1]['address']
 send_tx(BTCTEST, priv_key_to_account(BTCTEST, btc_key),btc_address, 0.00001)``
 
-![bitaps3](Images/bitaps3.png)
+![bitaps3](images/bitaps3.png)
 
 Confirmation of transaction.
 
-![bitaps4](Images/bitaps4.png)
+![bitaps4](images/bitaps4.png)
 
 ##  **Ethereum Testnet transaction**
 
@@ -112,33 +112,33 @@ Terminal cmd2:
 
 Result:
 Nodes are running and sync ok as below but not funded.
-![nodes](Images/nodes.png)
+![nodes](images/nodes.png)
 
 **Pre-fund ETH address using Ganache**
 
 select new workspace ethereum from the mainmenu
 
-![workspace1](Images/workspace1.png)
+![workspace1](images/workspace1.png)
 
 Select server tab and confirm hostname, port number and network ID are all correct. 
-![server](Images/server.png)
+![server](images/server.png)
 
 Select account & key tab and enter your mnemonic key.
-![accountkey](Images/accountkey.png)
+![accountkey](images/accountkey.png)
 
 Select workspace tab, name the workspace and click save workspace button on the right.
-![workspace](Images/workspace.png)
+![workspace](images/workspace.png)
 
 100 ETH has been deposited to the ETH test address.
-![Ganache_prefund](Images/Ganache_prefund.png)
+![Ganache_prefund](images/Ganache_prefund.png)
 
 Confirm the pre-funded account & amount on MyCrypto.
 
-![eth_deposit](Images/eth_deposit.png)
+![eth_deposit](images/eth_deposit.png)
 
 Send a transaction from the pre-funded address within the wallet to another.
-![eth_tx_python](Images/eth_tx_python.png)
+![eth_tx_python](images/eth_tx_python.png)
 
 MyCrypto's TX Status, and screenshot the successful transaction.
-![my_crypto_tx](Images/mycrypto_tx.png)
+![my_crypto_tx](images/mycrypto_tx.png)
 
