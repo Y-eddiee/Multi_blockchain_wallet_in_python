@@ -1,0 +1,25 @@
+Installing pip dependencies:
+
+- web3 (Python Ethereum library via terminal enter following command):
+$ pip install web3
+
+- bit  (Python Bitcoin library via terminal enter following command):
+$ pip install bit
+
+
+- Geth & Tools (https://geth.ethereum.org/downloads/)
+
+- MyCrypto (https://download.mycrypto.com/)
+
+- Ganache ver.2.5.4 (https://www.trufflesuite.com/ganache)
+
+PHP must be installed on your operating system.
+
+- Clone and install hd-wallet-derive repo 
+	Using terminal, enter following commands:
+	git clone https://github.com/dan-da/hd-wallet-derive
+	cd hd-wallet-derive
+	php -r "readfile('https://getcomposer.org/installer');" | php
+	php composer.phar install
+
+
